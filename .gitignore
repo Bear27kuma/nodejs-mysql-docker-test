@@ -1,0 +1,11 @@
+# ディレクトリ
+node_modules/
+.idea
+
+# ファイルのパターン一致
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
