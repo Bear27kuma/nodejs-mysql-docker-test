@@ -21,6 +21,22 @@ services:
     networks:
       - backend
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOSTS=mercury-db
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+    ports:
+      - '8080:80'
+    links:
+      - mercury-db
+    networks:
+      - backend
+    volumes:
+      - /sessions
+
   app:
     # イメージを指定
     image: node:16
