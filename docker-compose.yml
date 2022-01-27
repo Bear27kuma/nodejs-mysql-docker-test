@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    # イメージを指定
+    image: node:16
+    # コンテナ名
+    container_name: mercury_app
+    # 環境変数を設定
+    environment:
+      - DEBUG=app:*
+    tty: true
+    # ホスト側ポート：コンテナ側ポート
+    ports:
+      - '3000:3000'
+    # ソースコードを格納するフォルダをマウント
+    volumes:
+      - ./src:/app
+    # 起動時のカレントフォルダを指定
+    working_dir: /app
+    # 起動後に実行するコマンドを指定
+    command: npm run dev
