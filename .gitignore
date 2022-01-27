@@ -2,7 +2,8 @@
 node_modules/
 .idea
 
-# ファイルのパターン一致
+# ファイル
+.DS_Store
 *.com
 *.class
 *.dll
