@@ -12,7 +12,7 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
-// view engine setup
+// View Template Engine Setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -26,6 +26,8 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 
 app.use(cookieParser());
+
+// Static Files
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
