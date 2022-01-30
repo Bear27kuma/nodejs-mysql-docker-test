@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -29,6 +30,18 @@ app.use(cookieParser());
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Connection Pool
+const pool = mysql.createPool({
+  connectionLimit: 100,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+});
+
+// Connect to DB
+pool.getConnection();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
