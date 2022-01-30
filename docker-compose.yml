@@ -25,13 +25,13 @@ services:
     image: phpmyadmin/phpmyadmin
     environment:
       - PMA_ARBITRARY=1
-      - PMA_HOSTS=mercury-db
+      - PMA_HOSTS=mercury_db
       - PMA_USER=root
       - PMA_PASSWORD=password
     ports:
       - '8080:80'
     links:
-      - mercury-db
+      - mercury_db
     networks:
       - backend
     volumes:
