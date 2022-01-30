@@ -12,7 +12,7 @@ services:
       # タイムゾーンを日本時間に設定
       - TZ=Asia/Tokyo
     ports:
-      - '3306:3306'
+      - '3307:3306'
     volumes:
       # mysqlのデフォルト設定ファイルの上書き、:roでコンテナ側からは読み取り専用
       - ./mysql/conf:/etc/mysql/conf.d/:ro

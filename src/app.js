@@ -32,16 +32,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Connection Pool
-const pool = mysql.createPool({
-  connectionLimit: 100,
+const connection = mysql.createConnection({
   host: process.env.DB_HOST,
+  // port: 3306,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
 });
 
 // Connect to DB
-pool.getConnection();
+connection.connect();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
